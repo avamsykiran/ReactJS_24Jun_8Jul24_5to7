@@ -193,5 +193,74 @@ ReactJS
     Working With Forms
     Inter Component Communication
 
+    Life Cycle Methods
+
+        constructor()
+            |
+            ↓
+         render()
+            |
+            ↓
+        componentDidMount()     //is used to invoke any operation immediatly after the first render
+            |
+            ↓
+            /*************************************************************/
+                the component will be idle until any event occurs
+                and any event handlet is invoked and
+                if 'setState()' is called in there...!
+            /*************************************************************/    
+                                |
+                                ↓
+                            render()
+                                |
+                                ↓
+                            componentDidUpdate()    //is sued to excute any operation after every render()
 
     
+    React Hooks
+
+        A React Hook is a special function that provides special features to a function component.
+
+        useState        is a react hook that allows a function component to have state.
+
+                        let [reader,writer] = useState(initalValue);
+
+                        let [x,setX] = useState(0);
+
+                        x is sued to get the value
+                        setX is used to modify the value, and each tiem setX is called the component renders.
+
+        useEffect       is a react hook that can compensate componentDidMount and componentDidUpdat life 
+                        cycle method for a function compoent.
+
+                        useEffect(callBack,[]);
+
+                            the 'callback' method is executed only once after the first render of teh component.
+                            Equivalent to componentDidMount
+
+                        useEffect(callBack,[field1,field2]);
+
+                            the 'callback' method is executed after every render of the component whenever the any of those fields are modified. Equivalent to componentDidUpdate
+    
+    React Routing
+
+        npm i react-router react-router-dom --save
+
+            <BrowserRouter>
+
+                <Header />
+
+                <Routes>
+                    <Route path="/" element={<C1 />} />
+                    <Route path="/a" element={<C2 />} />
+                    <Route path="/b" element={<C3 />} />
+                    <Route path="/c/:pathVariable" element={<C4 />} />
+                </Routes>
+
+                <Footer />
+
+            </BrowserRouter>
+
+            <Link to"" ></Link>       instead of <a></a>
+
+            <Navigate to="" />  
